@@ -17,9 +17,14 @@ Before you begin, ensure you have the following installed and configured:
 - **Snowflake**: For target data.
 - **hevo data pipeline**: Create pipeline to load data from source to destination
 
-## Install postgresql on EC2 Using Docker
-Steps for setting up Docker and PostgreSQL on **Amazon Linux**:
 
+## Log in to EC2 Virtual Machine
+
+- Use your SSH client to connect to your EC2 instance. The command generally looks like this:
+
+  ```bash
+  ssh -i "your-key.pem" ec2-user@your-ec2-public-dns
+  ```
 ### Step 1: Install Docker
 1. Update your system:
    ```bash
@@ -65,17 +70,19 @@ This will show your running containers. If you see `my_postgres`, it means the P
 
 Now, PostgreSQL is set up and running in Docker on your Amazon Linux machine!
 
+### Step 2: Install dbt-snowflake
+1. Install dbt-snowflake:
+   ```bash
+   pip install dbt-snowflake
+   ```
+2. Check version to insure its successful installation:
+   ```bash
+   dbt --version
+   ```
+
 ## Steps to Execute the Project
 
-### 1. Log in to EC2 Virtual Machine
-
-- Use your SSH client to connect to your EC2 instance. The command generally looks like this:
-
-  ```bash
-  ssh -i "your-key.pem" ec2-user@your-ec2-public-dns
-  ```
-
-### 2. Clone the Git Repository
+### Step 3. Clone the Git Repository
 
 - Clone the project repository by running:
 
@@ -83,7 +90,7 @@ Now, PostgreSQL is set up and running in Docker on your Amazon Linux machine!
   git clone https://github.com/kedarshiral/hevodata_assignment.git
   ```
 
-### 3. Navigate to the DBT Project Directory
+### Step 4. Navigate to the DBT Project Directory
 
 - Change to the project directory:
 
@@ -91,7 +98,7 @@ Now, PostgreSQL is set up and running in Docker on your Amazon Linux machine!
   cd hevodata_assignment/my_dbt_project
   ```
 
-### 4. Run the Secrets Retrieval Script
+### Step 5. Run the Secrets Retrieval Script
 
 - First create secrets using AWS secret manager
 - Create IAM role for EC2 and add policy related to aws secret manager and attach that role to EC2
@@ -102,11 +109,11 @@ Now, PostgreSQL is set up and running in Docker on your Amazon Linux machine!
   python get_secrets.py
   ```
 
-### 5. Verify Credential Configuration
+### Step 6. Verify Credential Configuration
 
 - At this point, your credentials should be configured correctly. Ensure that your environment variables are set up as expected.
 
-### 6. Run the DBT Project
+### Step 7. Run the DBT Project
 
 - To build the models in your DBT project, run:
 
@@ -114,7 +121,7 @@ Now, PostgreSQL is set up and running in Docker on your Amazon Linux machine!
   dbt run
   ```
 
-### 7. Execute Tests
+### Step 8. Execute Tests
 
 - After the models have been built, execute the tests using:
 
@@ -122,7 +129,7 @@ Now, PostgreSQL is set up and running in Docker on your Amazon Linux machine!
   bash run_tests.sh
   ```
 
-### 8. Verify Test Results
+### Step 9. Verify Test Results
 
 - Navigate to the `results` folder to check the output:
 
