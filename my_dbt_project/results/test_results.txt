@@ -1,0 +1,35 @@
+[0m05:32:48  Running with dbt=1.8.7
+[0m05:32:48  Registered adapter: snowflake=1.8.3
+[0m05:32:49  Found 1 model, 11 data tests, 454 macros
+[0m05:32:49  
+[0m05:32:51  Concurrency: 1 threads (target='dev')
+[0m05:32:51  
+[0m05:32:51  1 of 11 START test not_null_customers_customer_id .............................. [RUN]
+[0m05:32:52  1 of 11 PASS not_null_customers_customer_id .................................... [[32mPASS[0m in 1.85s]
+[0m05:32:52  2 of 11 START test not_null_customers_customer_lifetime_value .................. [RUN]
+[0m05:32:54  2 of 11 PASS not_null_customers_customer_lifetime_value ........................ [[32mPASS[0m in 1.74s]
+[0m05:32:54  3 of 11 START test not_null_customers_first_name ............................... [RUN]
+[0m05:32:56  3 of 11 PASS not_null_customers_first_name ..................................... [[32mPASS[0m in 1.81s]
+[0m05:32:56  4 of 11 START test not_null_customers_first_order .............................. [RUN]
+[0m05:32:58  4 of 11 PASS not_null_customers_first_order .................................... [[32mPASS[0m in 1.78s]
+[0m05:32:58  5 of 11 START test not_null_customers_last_name ................................ [RUN]
+[0m05:32:59  5 of 11 PASS not_null_customers_last_name ...................................... [[32mPASS[0m in 1.72s]
+[0m05:32:59  6 of 11 START test not_null_customers_most_recent_order ........................ [RUN]
+[0m05:33:01  6 of 11 PASS not_null_customers_most_recent_order .............................. [[32mPASS[0m in 1.78s]
+[0m05:33:01  7 of 11 START test not_null_customers_number_of_orders ......................... [RUN]
+[0m05:33:03  7 of 11 PASS not_null_customers_number_of_orders ............................... [[32mPASS[0m in 1.73s]
+[0m05:33:03  8 of 11 START test test_names .................................................. [RUN]
+[0m05:33:05  8 of 11 PASS test_names ........................................................ [[32mPASS[0m in 1.87s]
+[0m05:33:05  9 of 11 START test test_order_dates ............................................ [RUN]
+[0m05:33:07  9 of 11 PASS test_order_dates .................................................. [[32mPASS[0m in 1.79s]
+[0m05:33:07  10 of 11 START test test_orders_and_value ...................................... [RUN]
+[0m05:33:08  10 of 11 PASS test_orders_and_value ............................................ [[32mPASS[0m in 1.85s]
+[0m05:33:08  11 of 11 START test unique_customers_customer_id ............................... [RUN]
+[0m05:33:10  11 of 11 PASS unique_customers_customer_id ..................................... [[32mPASS[0m in 1.79s]
+[0m05:33:10  
+[0m05:33:10  Finished running 11 data tests in 0 hours 0 minutes and 21.67 seconds (21.67s).
+[0m05:33:10  
+[0m05:33:10  [32mCompleted successfully[0m
+[0m05:33:10  
+[0m05:33:10  Done. PASS=11 WARN=0 ERROR=0 SKIP=0 TOTAL=11
+Test run at: Thu Oct 10 05:33:11 UTC 2024

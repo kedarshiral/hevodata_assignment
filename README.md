@@ -1,51 +1,89 @@
-# dbt Snowflake Project
+Here’s the updated README file in Markdown format, incorporating all the sections as per your request:
 
-# Setting Up PostgreSQL in a Docker Container on Amazon Linux EC2
+```markdown
+# DBT Project Setup Guide
 
-This guide provides step-by-step instructions to install and run PostgreSQL in a Docker container on an Amazon Linux EC2 instance. The container will map port 5432 of the EC2 instance to port 5432 of the PostgreSQL container, and ensure data persistence using Docker volumes.
+## Overview
 
----
+This guide will help you set up and execute the DBT project from the cloned repository. It covers everything from logging into your EC2 instance to running the project and verifying results.
 
 ## Prerequisites
 
-- **Amazon Linux EC2 instance**
-- **Docker** installed
-- **PostgreSQL** Docker image
+Before you begin, ensure you have the following installed and configured:
 
----
+- **Git**: A version control system to manage your code.
+- **Python**: Version 3.8 or above.
+- **DBT-Snowflake**: The DBT adapter for Snowflake.
+- **AWS Account**: Access to Secrets Manager configured with your credentials.
+- **EC2 Instance**: An Amazon EC2 instance to run the project.
 
-## Step 1: Install Docker on Amazon Linux
+## Steps to Execute the Project
 
-### 1.1 Update Your Packages
+### 1. Log in to EC2 Virtual Machine
 
-Log into your EC2 instance via SSH and update the package manager.
+- Use your SSH client to connect to your EC2 instance. The command generally looks like this:
 
-```bash
-sudo yum update -y
-sudo yum install -y docker
-sudo service docker start
-docker pull postgres
-docker volume create postgres_data
-sudo mkdir -p /media/data/postgres-data
-docker run -d \
-  -e POSTGRES_USER=hevodata \
-  -e POSTGRES_PASSWORD=hevo@20 \
-  -p 5432:5432 \
-  -v /media/data/postgres-data:/var/lib/postgresql/data \
-  postgres
-docker ps
+  ```bash
+  ssh -i "your-key.pem" ec2-user@your-ec2-public-dns
+  ```
 
+### 2. Clone the Git Repository
 
-### This dbt project builds a materialized table `customers` in Snowflake.
+- Clone the project repository by running:
 
-## How to Run
+  ```bash
+  git clone https://github.com/kedarshiral/hevodata_assignment.git
+  ```
 
-1. Set up environment variables for Snowflake:
-   ```bash
-   export SNOWFLAKE_ACCOUNT=your_account
-   export SNOWFLAKE_USER=your_user
-   export SNOWFLAKE_PASSWORD=your_password
-   export SNOWFLAKE_ROLE=your_role
-   export SNOWFLAKE_WAREHOUSE=your_warehouse
-   export SNOWFLAKE_DATABASE=your_database
-   export SNOWFLAKE_SCHEMA=your_schema
+### 3. Navigate to the DBT Project Directory
+
+- Change to the project directory:
+
+  ```bash
+  cd hevodata_assignment/my_dbt_project
+  ```
+
+### 4. Run the Secrets Retrieval Script
+
+- First create secrets using AWS secret manager
+
+- Execute the following command to retrieve your AWS Secrets:
+
+  ```bash
+  python get_secrets.py
+  ```
+
+### 5. Verify Credential Configuration
+
+- At this point, your credentials should be configured correctly. Ensure that your environment variables are set up as expected.
+
+### 6. Run the DBT Project
+
+- To build the models in your DBT project, run:
+
+  ```bash
+  dbt run
+  ```
+
+### 7. Execute Tests
+
+- After the models have been built, execute the tests using:
+
+  ```bash
+  bash run_tests.sh
+  ```
+
+### 8. Verify Test Results
+
+- Navigate to the `results` folder to check the output:
+
+  ```bash
+  cd results
+  ```
+
+- Verify the presence of the text files containing the test results.
+
+## Conclusion
+
+By following these steps, you will have successfully set up and executed the DBT project. Ensure to check the results in the `results` folder for confirmation of your tests.
+```
