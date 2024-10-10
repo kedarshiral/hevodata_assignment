@@ -18,7 +18,7 @@ Before you begin, ensure you have the following installed and configured:
 - **hevo data pipeline**: Create pipeline to load data from source to destination
 
 
-## Log in to EC2 Virtual Machine
+### Log in to EC2 Virtual Machine
 
 - Use your SSH client to connect to your EC2 instance. The command generally looks like this:
 
