@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: customers
+    description: "A model for customer data"
+    columns:
+      - name: customer_id
+        description: "The unique identifier for each customer"
+        tests:  
+          - not_null  
+          - unique    
+
+      - name: first_name
+        description: "Customer's first name"
+        tests:
+          - not_null  
+
+      - name: last_name
+        description: "Customer's last name"
+        tests:
+          - not_null  
+
+      - name: first_order
+        description: "The date of the customer's first order"
+        tests:
+          - not_null  
+
+      - name: most_recent_order
+        description: "The date of the customer's most recent order"
+        tests:
+          - not_null  
+
+      - name: number_of_orders
+        description: "Total number of orders made by the customer"
+        tests:
+          - not_null  
+
+      - name: customer_lifetime_value
+        description: "Total lifetime value of the customer"
+        tests:
+          - not_null  
