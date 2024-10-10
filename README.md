@@ -1,6 +1,3 @@
-Here’s the updated README file in Markdown format, incorporating all the sections as per your request:
-
-```markdown
 # DBT Project Setup Guide
 
 ## Overview
@@ -86,4 +83,3 @@ Before you begin, ensure you have the following installed and configured:
 ## Conclusion
 
 By following these steps, you will have successfully set up and executed the DBT project. Ensure to check the results in the `results` folder for confirmation of your tests.
-```
