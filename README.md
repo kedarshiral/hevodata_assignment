@@ -43,6 +43,7 @@ Before you begin, ensure you have the following installed and configured:
 ### 4. Run the Secrets Retrieval Script
 
 - First create secrets using AWS secret manager
+- Create IAM role for EC2 and add policy related to aws secret manager and attach that role to EC2
 
 - Execute the following command to retrieve your AWS Secrets:
 
